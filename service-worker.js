@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Turmite-Games/precache-manifest.6173d2185381360099bb357bf9575149.js"
+  "/Turmite-Games/precache-manifest.c75513e9ded77452bf726c280d2a8822.js"
 );
 
 workbox.clientsClaim();
