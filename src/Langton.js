@@ -142,12 +142,12 @@ class Langton extends React.Component {
 	}
 
 	slow = () => {
-		this.speed = 100;
+		this.speed = 50;
 		this.playButton();
 	}
 
 	fast = () => {
-		this.speed = 200;
+		this.speed = 100;
 		this.playButton();
 	}
 
@@ -208,17 +208,17 @@ class Langton extends React.Component {
 			this.x--;
 		}
 
-		if (this.x > this.cols) {
+		if (this.x >= this.rows) {
 			this.x = 0;
 		}
 		else if (this.x < 0) {
-			this.x = this.cols - 1;
+			this.x = this.rows - 1;
 		}
-		if (this.y > this.rows) {
+		if (this.y >= this.cols) {
 			this.y = 0;
 		}
 		else if (this.y < 0) {
-			this.y = this.rows - 1;
+			this.y = this.cols - 1;
 		}
 	}
 
@@ -240,27 +240,8 @@ class Langton extends React.Component {
 	play = () => {
         let g = this.state.gridFull;
 		let g2 = arrayClone(this.state.gridFull);
-		this.langtonPlay(g2);
-
-		// for (let i = 0; i < this.rows; i++) {
-		// 	for (let j = 0; j < this.cols; j++) {
-
-		// 		// let count = 0;
-		// 		// if (!g[i][j]) {
-
-		// 		// }
-		// 		// if (i > 0 && g[i - 1][j]) count++;
-		// 		// if (i > 0 && j > 0 && g[i - 1][j - 1]) count++;
-		// 		// if ((i > 0 && j < this.cols - 1) && g[i - 1][j + 1]) count++;
-		// 		// if ((j < this.cols - 1) && g[i][j + 1]) count++;
-		// 		// if (j > 0 && g[i][j - 1]) count++;
-		// 		// if (i < this.rows - 1 && g[i + 1][j]) count++;
-		// 		// if (i < this.rows - 1 && j > 0 && g[i + 1][j - 1]) count++;
-		// 		// if (i < this.rows - 1 && j < this.cols - 1 && g[i + 1][j + 1]) count++;
-		// 		// if (g[i][j] && (count < 2 || count > 3)) g2[i][j] = false;
-		// 		// if (!g[i][j] && count === 3) g2[i][j] = true;
-		// 	}
-		// }
+        this.langtonPlay(g2);
+        
 		this.setState({
 			gridFull: g2,
 			generation: this.state.generation + 1
